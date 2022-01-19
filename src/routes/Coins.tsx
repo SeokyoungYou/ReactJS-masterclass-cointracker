@@ -18,11 +18,11 @@ const Header = styled.header`
 `;
 const CoinList = styled.ul``;
 const Coin = styled.li`
-  background-color: white;
-  color: ${(props) => props.theme.bgColor};
-  margin-bottom: 10px;
+  background-color: ${(props) => props.theme.cardBgColor};
+  color: ${(props) => props.theme.textColor};
   border-radius: 15px;
-  transition: color;
+  margin-bottom: 10px;
+  border: 1px solid white;
   a {
     display: flex;
     align-items: center;
@@ -57,7 +57,10 @@ const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
-function Coins() {
+interface ICoinsPRops {
+  toggleDark: () => void; // function without return
+}
+function Coins({ toggleDark }: ICoinsPRops) {
   const { isLoading, data } = useQuery<ICoin[]>("all coins", fetchCoins);
   return (
     <Container>
@@ -66,6 +69,7 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>코인</Title>
+        <button>Toggle Dark Mode</button>
       </Header>
       {isLoading ? (
         <Loader>"Loading..."</Loader>

@@ -18,7 +18,7 @@ interface ChartProps {
 function Chart({ coinId }: ChartProps) {
   const { isLoading, data } = useQuery<IHistorical[]>(
     ["ohlcv", coinId],
-    () => fetchCoinTickers(coinId),
+    () => fetchCoinHistory(coinId),
     {
       refetchInterval: 10000, //50초마다 refetch되게 하기
     }
