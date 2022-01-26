@@ -59,6 +59,34 @@ const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `;
+const ToggleBtn = styled.input`
+  -webkit-appearance: none;
+  width: 80px;
+  height: 20px;
+  position: relative;
+  border-radius: 5px;
+  outline: none;
+  background-color: gray;
+  transition: all 1s;
+  display: flex;
+  align-items: center;
+  &:before {
+    content: "🌚";
+    font-size: 20px;
+    width: 100%;
+    transform: translate(0%);
+    transition: all 1s;
+  }
+  &:checked {
+    background-color: skyblue;
+    transition: all 1s;
+  }
+  &:checked:before {
+    content: "🌞";
+    transform: translate(70%);
+    transition: all 1s;
+  }
+`;
 interface ICoinsPRops {
   toggleDark: () => void; // function without return
 }
@@ -73,7 +101,7 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>코인</Title>
-        <button onClick={toggleDarkatom}>Toggle Mode</button>
+        <ToggleBtn type="checkbox" onClick={toggleDarkatom}></ToggleBtn>
       </Header>
       {isLoading ? (
         <Loader>"Loading..."</Loader>
