@@ -13,6 +13,8 @@ import { fetchCoinInfo, fetchCoinTickers } from "./api";
 import Chart from "./Chart";
 import Price from "./Price";
 import { Helmet } from "react-helmet";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -24,6 +26,20 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  a {
+    font-size: 13px;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    left: 20%;
+    top: 20px;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => props.theme.textColor};
+    background-color: ${(props) => props.theme.accentColor};
+  }
 `;
 const Overview = styled.div`
   display: flex;
@@ -74,6 +90,7 @@ const Tab = styled.span<{ isActive: boolean }>`
     display: block;
   }
 `;
+
 interface RouteParams {
   coinId: string;
 }
@@ -150,6 +167,7 @@ function Coin() {
       refetchInterval: 5000, //50초마다 refetch되게 하기
     }
   );
+  const handleBackBtn = () => {};
 
   const loading = infoLoading || tickersLoading;
   return (
@@ -160,6 +178,7 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
+        <Link to={"/"}>Back</Link>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>

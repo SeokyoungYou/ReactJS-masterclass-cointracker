@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCoins } from "./api";
 import { Helmet } from "react-helmet";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "../atoms";
 
 const Container = styled.div`
@@ -37,27 +37,10 @@ const Coin = styled.li`
     }
   }
 `;
+
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
-`;
-const Loader = styled.span`
-  text-align: center;
-`;
-interface ICoin {
-  //2-1)
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-}
-const Img = styled.img`
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
 `;
 const ToggleBtn = styled.input`
   -webkit-appearance: none;
@@ -87,6 +70,25 @@ const ToggleBtn = styled.input`
     transition: all 1s;
   }
 `;
+const Loader = styled.span`
+  text-align: center;
+`;
+interface ICoin {
+  //2-1)
+  id: string;
+  name: string;
+  symbol: string;
+  rank: number;
+  is_new: boolean;
+  is_active: boolean;
+  type: string;
+}
+const Img = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+`;
+
 interface ICoinsPRops {
   toggleDark: () => void; // function without return
 }
