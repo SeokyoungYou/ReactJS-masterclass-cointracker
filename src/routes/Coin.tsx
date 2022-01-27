@@ -153,7 +153,6 @@ interface PriceData {
     };
   };
 }
-interface PriceData {}
 function Coin() {
   const { coinId } = useParams<RouteParams>();
   const { state } = useLocation<RouteState>(); //return object에 state 있음
@@ -170,7 +169,6 @@ function Coin() {
       refetchInterval: 5000, //50초마다 refetch되게 하기
     }
   );
-  const handleBackBtn = () => {};
 
   const loading = infoLoading || tickersLoading;
   return (
@@ -228,7 +226,7 @@ function Coin() {
           </Tabs>
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinId={coinId} />
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId} />
