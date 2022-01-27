@@ -43,7 +43,7 @@ const ContainerTab = styled.div`
   justify-content: space-between;
 `;
 const PriceTab = styled.div`
-  width: 33%;
+  width: 50%;
   height: 30px;
 `;
 const PriceTabTitle = styled.span`
@@ -71,10 +71,6 @@ function Price({ coinId }: PriceProps) {
     <Container>
       <ContainerTab>
         <PriceTab>
-          <PriceTabTitle>CIRCULATING SUPPLY</PriceTabTitle>
-          <PriceTabValue>{tickerData?.circulating_supply}</PriceTabValue>
-        </PriceTab>
-        <PriceTab>
           <PriceTabTitle>MARKET CAP</PriceTabTitle>
           <PriceTabValue>{tickerData?.quotes.USD.market_cap}</PriceTabValue>
         </PriceTab>
@@ -87,9 +83,15 @@ function Price({ coinId }: PriceProps) {
       </ContainerTab>
       <ContainerTab>
         <PriceTab>
+          <PriceTabTitle>CIRCULATING SUPPLY</PriceTabTitle>
+          <PriceTabValue>{tickerData?.circulating_supply}</PriceTabValue>
+        </PriceTab>
+        <PriceTab>
           <PriceTabTitle>VOLUME (24h)</PriceTabTitle>
           <PriceTabValue>{tickerData?.quotes.USD.volume_24h}</PriceTabValue>
         </PriceTab>
+      </ContainerTab>
+      <ContainerTab>
         <PriceTab>
           <PriceTabTitle>PERCENT CHANGE (1week)</PriceTabTitle>
           <PriceTabValue>
