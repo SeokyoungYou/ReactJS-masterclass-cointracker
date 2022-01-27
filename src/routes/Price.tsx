@@ -88,7 +88,9 @@ function Price({ coinId }: PriceProps) {
         </PriceTab>
         <PriceTab>
           <PriceTabTitle>VOLUME (24h)</PriceTabTitle>
-          <PriceTabValue>{tickerData?.quotes.USD.volume_24h}</PriceTabValue>
+          <PriceTabValue>
+            {tickerData?.quotes.USD.volume_24h.toFixed(0)}
+          </PriceTabValue>
         </PriceTab>
       </ContainerTab>
       <ContainerTab>
