@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/ReactJS-masterclass-cointracker/static/js/main.8a0bd61e.js",
+    "main.js": "/ReactJS-masterclass-cointracker/static/js/main.474fabba.js",
     "index.html": "/ReactJS-masterclass-cointracker/index.html",
-    "main.8a0bd61e.js.map": "/ReactJS-masterclass-cointracker/static/js/main.8a0bd61e.js.map"
+    "main.474fabba.js.map": "/ReactJS-masterclass-cointracker/static/js/main.474fabba.js.map"
   },
   "entrypoints": [
-    "static/js/main.8a0bd61e.js"
+    "static/js/main.474fabba.js"
   ]
 }
