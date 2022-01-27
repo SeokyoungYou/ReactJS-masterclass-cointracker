@@ -24,7 +24,7 @@ const Container = styled.div`
 const Header = styled.header`
   height: 10vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   a {
     font-size: 13px;
@@ -32,14 +32,17 @@ const Header = styled.header`
     height: 37px;
     border-radius: 10px;
     display: flex;
-    position: absolute;
-    left: 20%;
-    top: 20px;
     align-items: center;
     justify-content: center;
     color: ${(props) => props.theme.textColor};
     background-color: ${(props) => props.theme.accentColor};
   }
+`;
+const HeaderTab = styled.span`
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
 `;
 const Overview = styled.div`
   display: flex;
@@ -178,10 +181,13 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
-        <Link to={"/"}>Back</Link>
+        <HeaderTab>
+          <Link to={"/"}>Back</Link>
+        </HeaderTab>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
+        <HeaderTab></HeaderTab>
       </Header>
       {loading ? (
         <Loader>Loading...</Loader>
